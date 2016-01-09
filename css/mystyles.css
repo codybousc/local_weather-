@@ -5,7 +5,9 @@ body {
  */}
 
  .container {
-   background-size: cover; 
+   background-size: cover;
+   height: 100%;
+   width: 100%;
  }
 
 .tempteratureBox {
@@ -40,4 +42,5 @@ body {
 
 h1 {
   text-align: center;
+  color: white;
 }
