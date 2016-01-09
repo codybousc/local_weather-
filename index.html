@@ -1,22 +1,33 @@
 <!DOCTYPE html>
-<html ng-app="localWeather">
+<html ng-app="localWeather" ng-controller="WeatherController" ng-int="displayImage()">
 <head>
  <title>Local Weather</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/mystyles.css" type="text/css">
 </head>
 <body>
-
-  <div class="weather center-block" ng-controller="WeatherController">
-
-{{userWeather}} <br><br>
-{{minTemp}} <br><br>
-{{maxTemp}} <br>
-  {{city}}
+  <div class="container" ng-style="{'background-image': 'url(css/images/'+ chosenImage + ')'}">
+  <h1>Current Weather in {{city}}</h1>
+  <div class="weather center-block">
+    {{userWeather}} <br><br>
+  <div class="row  center-block">
+      <div class="col-md-4 tempteratureBox">
+          Min Temp: {{minTemp}} <br><br>
+          Max Temp: {{maxTemp}} <br>
+      </div>
+      <div class="col-md-4 descriptionBox">
+          {{description}}
+      </div>
+      <div class="col-md-4 windBox">
+          {{wind}} mph
+      </div>
+  </div>
+ </div>
  </div>
 
-  <script src="bower_components/angular/angular.js"></script>
+ <button class="btn btn-primary" ng-click="displayImage()">How cold is it bro?</button>
 
+  <script src="bower_components/angular/angular.js"></script>
   <script src="controllers/WeatherController.js" type="text/javascript"></script>
 
 </body>

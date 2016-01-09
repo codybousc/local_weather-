@@ -1,5 +1,8 @@
 angular.module("localWeather", []).controller('WeatherController', ['$scope','$http',
 function($scope, $http) {
+  $scope.minTemp;
+  $scope.maxTemp;
+
 
 
   $http({
@@ -12,12 +15,14 @@ function($scope, $http) {
     //this is probably bad form, and i'm sure there's a 'correct' way to do this, but it works!
       $http({
           method: 'GET',
-          // url: 'http://api.openweathermap.org/data/2.5/weather?q='+ $scope.city + ',ng&units=imperial&appid=f800e45312042e21e1423e29a68bdd8c'
-          url: 'http://api.openweathermap.org/data/2.5/weather?q=NewYork,ng&units=imperial&appid=f800e45312042e21e1423e29a68bdd8c'
+          url: 'http://api.openweathermap.org/data/2.5/weather?q='+ $scope.city + ',ng&units=imperial&appid=f800e45312042e21e1423e29a68bdd8c'
+          // url: 'http://api.openweathermap.org/data/2.5/weather?q=NewYork,ng&units=imperial&appid=f800e45312042e21e1423e29a68bdd8c'
         }).then(function successCallback(response) {
           $scope.userWeather = response;
           $scope.minTemp = response.data.main.temp_min;
-          $scope.maxTemp = response.data.main.temp_max; 
+          $scope.maxTemp = response.data.main.temp_max;
+          $scope.description = response.data.weather[0].description;
+          $scope.wind = response.data.wind.speed;
 
           console.log(response);
         }, function errorCallback(response) {
@@ -27,6 +32,21 @@ function($scope, $http) {
   }, function errorCallback(response) {
     console.log(response);
   });
+
+  $scope.displayImage = function() {
+    console.log("making it to displayImage")
+    if($scope.minTemp < 35) {
+      $scope.chosenImage = 'lacosta.jpeg';
+    }
+    else {
+      console.log("yeppp")
+      $scope.chosenImage = 'trees.jpeg'
+
+
+
+
+    }
+  }
 
 
 }]);
