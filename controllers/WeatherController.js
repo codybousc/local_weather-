@@ -33,18 +33,16 @@ function($scope, $http) {
     console.log(response);
   });
 
+//will come back to this to make the photo update based on weather. current problem, is that the background image loads before the http calls have been made
+//and before the current temperature has been determined.
   $scope.displayImage = function() {
     console.log("making it to displayImage")
-    if($scope.minTemp < 35) {
+    if($scope.minTemp < 40) {
       $scope.chosenImage = 'lacosta.jpeg';
     }
     else {
       console.log("yeppp")
       $scope.chosenImage = 'trees.jpeg'
-
-
-
-
     }
   }
 
