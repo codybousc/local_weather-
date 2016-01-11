@@ -2,8 +2,21 @@ angular.module("localWeather", []).controller('WeatherController', ['$scope','$h
 function($scope, $http) {
   $scope.minTemp;
   $scope.maxTemp;
+  $scope.currentUnits = 'imperial';
 
+  $scope.selectUnits = function() {
 
+    if($scope.currentUnits == 'imperial') {
+      $scope.currentUnits = 'metric'
+      $route.reload();
+    }
+    else {
+      $scope.currentUnits = 'imperial';
+      $route.reload();
+
+      console.log($scope.currentUnits)
+    }
+  }
 
   $http({
     method: 'GET',
@@ -15,8 +28,9 @@ function($scope, $http) {
     //this is probably bad form, and i'm sure there's a 'correct' way to do this, but it works!
       $http({
           method: 'GET',
-          url: 'http://api.openweathermap.org/data/2.5/weather?q='+ $scope.city + ',ng&units=imperial&appid=f800e45312042e21e1423e29a68bdd8c'
-          // url: 'http://api.openweathermap.org/data/2.5/weather?q=NewYork,ng&units=imperial&appid=f800e45312042e21e1423e29a68bdd8c'
+          url: 'http://api.openweathermap.org/data/2.5/weather?q='+ $scope.city + ',ng&units='+ $scope.currentUnits +'&appid=f800e45312042e21e1423e29a68bdd8c'
+          // url: 'http://api.openweathermap.org/data/2.5/weather?q='+ $scope.city + ',ng&units=imperial&appid=f800e45312042e21e1423e29a68bdd8c'
+
         }).then(function successCallback(response) {
           $scope.userWeather = response;
           $scope.minTemp = response.data.main.temp_min;
