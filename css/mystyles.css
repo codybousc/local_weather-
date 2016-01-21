@@ -1,23 +1,31 @@
 body {
  background-image: url(images/lacosta.jpeg);
+ background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  font-family: 'Lato', sans-serif;
+ font-family: 'Lato', sans-serif;
+
  }
 
 .tempteratureBox {
-  height: 100px;
-  width: 250px;
+  height: 125px;
+  width: 25%;
   background-color: white;
   text-align: center;
   border-radius: 25px;
   padding: 10px;
   border: 20px;
   font-size: 20px;
+  margin-right: 1%;
+  margin-bottom: 1%
+  
 }
 
 .descriptionBox {
-  height: 100px;
-  width: 250px;
+  height: 125px;
+  width: 25%;
   background-color: white;
   text-align: center;
   border-radius: 25px;
@@ -25,11 +33,13 @@ body {
   border: 20px;
   font-size: 20px;
   padding-top: 35px;
+  margin-right: 1%;
+  margin-bottom: 1%
 }
 
 .windBox {
-  height: 100px;
-  width: 250px;
+  height: 125px;
+  width: 25%;
   background-color: white;
   text-align: center;
   border-radius: 25px;
@@ -46,6 +56,11 @@ h1 {
 
 .spacer {
   height: 200px;
+  width: 100%;
+}
+
+.spacerDeux {
+  height: 500px;
   width: 100%;
 }
 
