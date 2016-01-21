@@ -19,8 +19,8 @@ body {
   border: 20px;
   font-size: 20px;
   margin-right: 1%;
-  margin-bottom: 1%
-  
+  margin-bottom: 1%;
+  overflow: hidden;
 }
 
 .descriptionBox {
@@ -34,7 +34,7 @@ body {
   font-size: 20px;
   padding-top: 35px;
   margin-right: 1%;
-  margin-bottom: 1%
+  margin-bottom: 1%;
 }
 
 .windBox {
